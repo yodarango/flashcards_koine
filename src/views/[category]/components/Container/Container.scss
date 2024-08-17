@@ -1,0 +1,15 @@
+.container-52tr {
+  position: relative;
+  margin: auto;
+  top: 0;
+
+  .container-52tr__progress {
+    margin-bottom: 5rem;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+    left: calc(-50vw + 50%);
+    margin: -4.8rem 0 var(--dr-spacing-8);
+    width: 99.9vw;
+  }
+}
