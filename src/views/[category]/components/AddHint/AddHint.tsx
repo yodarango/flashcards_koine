@@ -116,7 +116,7 @@ export const AddHint = (props: HTMLAttributes<HTMLDivElement>) => {
             }}
             primary
           >
-            <span className='icon icon-eye-outline me-2' />
+            <ion-icon name='eye-outline' className='me-2' />
             <span>View Hint</span>
           </Button>
           <Button
@@ -127,7 +127,7 @@ export const AddHint = (props: HTMLAttributes<HTMLDivElement>) => {
             }}
             secondary
           >
-            <span className='icon icon-pencil-outline me-2' />
+            <ion-icon name='pencil-outline' className='me-2' />
             <span>Edit Hint</span>
           </Button>
         </div>
