@@ -54,10 +54,10 @@ export const Modal = (props: TModal) => {
           >
             <If condition={showCloseButton}>
               <button
-                className='shrood-modal-0elj__close bg-nu'
+                className='shrood-modal-0elj__close color-alpha bg-nu'
                 onClick={onClose}
               >
-                <ion-icon name='close-outline' className='color-alpha' />
+                <ion-icon name='close-outline' />
               </button>
             </If>
             <h4 className='mb-2 text-center mb-6 px-4'>{title}</h4>

@@ -208,7 +208,7 @@ export const Settings = (props: HTMLAttributes<HTMLDivElement>) => {
         className='progress-72lh__settings p-0 m-0 d-flex align-items-center justify-content-center bg-gamma'
         onClick={() => setIsModalOpen(true)}
       >
-        <ion-icon name='settings-outline' className='color-alpha' />
+        <ion-icon name='settings-outline' />
       </button>
     </section>
   );
