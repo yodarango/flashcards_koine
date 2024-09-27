@@ -1,5 +1,5 @@
+import { LOCAL_STORAGE_KEY, ROUTE_WORDS_CATEGORY } from "@constants";
 import { Link, generatePath } from "react-router-dom";
-import { ROUTE_WORDS_CATEGORY } from "@constants";
 import { TermsSetCard } from "@components";
 import { allCardSets } from "@data/index";
 
@@ -10,7 +10,7 @@ import { useEffect } from "react";
 export const Layout = () => {
   // Always clear the state on initial render render.
   useEffect(() => {
-    localStorage.removeItem("shrood__polynguo");
+    localStorage.removeItem(LOCAL_STORAGE_KEY);
   }, []);
 
   return (

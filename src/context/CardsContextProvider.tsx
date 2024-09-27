@@ -5,8 +5,9 @@ import {
   CardsContext,
 } from "./CardsContext";
 import { useContext, useEffect, useState } from "react";
-import { allCardSets } from "@data/index";
+import { LOCAL_STORAGE_KEY } from "@constants";
 import { useParams } from "react-router-dom";
+import { allCardSets } from "@data/index";
 import { shuffle } from "../utils/shuffle";
 
 type TCardsContextProvider = {
@@ -44,7 +45,7 @@ export const CardsContextProvider = (props: TCardsContextProvider) => {
 
   // initialize the state on initial render render from the local storage
   function initializeStateFromLocalStorage() {
-    const localStorageData = localStorage.getItem("shrood__polynguo");
+    const localStorageData = localStorage.getItem(LOCAL_STORAGE_KEY);
     const parsedData = JSON.parse(localStorageData!);
 
     setState(parsedData);
@@ -52,7 +53,7 @@ export const CardsContextProvider = (props: TCardsContextProvider) => {
 
   // initialize the state on initial render render.
   async function initializeState() {
-    const localStorageData = localStorage.getItem("shrood__polynguo");
+    const localStorageData = localStorage.getItem(LOCAL_STORAGE_KEY);
 
     if (localStorageData) {
       initializeStateFromLocalStorage();
@@ -125,6 +126,14 @@ export const CardsContextProvider = (props: TCardsContextProvider) => {
     const isThisTheLastCardToBeGuessed =
       totalNumberOfGuesses === state.totalCards - 1;
 
+    console.log(
+      state.correctGuessIds,
+      state.wrongGuessIds,
+      state.currentCardIndex
+    );
+
+    console.log(cardId);
+
     // check if the card has already been guessed according the the guess type being passed,
     // otherwise it will result in a duplicate entry in the state.
     if (
@@ -184,7 +193,7 @@ export const CardsContextProvider = (props: TCardsContextProvider) => {
 
   // reset the state to the initial state
   async function handleResetState() {
-    localStorage.removeItem("shrood__polynguo");
+    localStorage.removeItem(LOCAL_STORAGE_KEY);
 
     const currentCardsSet = await findCardSetFromParams();
     const totalCards = currentCardsSet.sets.length;
@@ -261,7 +270,7 @@ export const CardsContextProvider = (props: TCardsContextProvider) => {
   useEffect(() => {
     if (Object.keys(state.currentCardsSet).length === 0) return;
 
-    localStorage.setItem("shrood__polynguo", JSON.stringify(state));
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state));
   }, [state]);
 
   return (
